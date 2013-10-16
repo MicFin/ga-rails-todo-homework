@@ -1,0 +1,12 @@
+<div class="todo-list">
+<h1>Todo List</h1>
+<%= link_to "New Todo", new_todo_path %>	
+<%@todos.each do |todo| %>
+<h3><%=link_to todo.description , todo %></h3>
+	<div>Completed: <%= todo.flag%></div>
+	<div>Created on: <%= todo.created_at%></div>
+	<div>Due date: <%= todo.due_date%></div>
+	<%= link_to "Edit Todo", edit_todo_path(todo) %>
+	<%= link_to "Destroy", todo, method: :delete, data: {confirm: "Remove Todo"} %>
+<%end%>
+</div>
